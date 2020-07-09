@@ -1,0 +1,94 @@
+/*
+Theme Name: Twenty Twenty Child
+Text Domain: twentytwentychild
+Template: twentytwenty
+Version: 1.0
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Description: Twenty Twenty child theme.
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Author: Nazrul Islam Nayan
+Author URI: https://profiles.wordpress.org/nayanchamp7/
+Theme URI: https://wordpress.org/themes/twentytwenty/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/**
+ * Import fonts
+ */
+
+@font-face {
+    font-family: 'roboto';
+    src: url(../twentytwenty-child/fonts/Roboto-Regular.ttf);
+}
+
+/**
+ * Hero Counter Section CSS
+ */
+ .vx-hero-counter-items {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding: 40px 40px 40px 40px;
+}
+.vx-hero-counter-item {
+    background: #4765a1;
+    color: #fff;
+    text-shadow: none;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-family: 'roboto';
+}
+.vx-hero-counter-item:last-child {
+    margin-bottom: 0;
+}
+h2.vx-counter-title {
+    font-size: 16px;
+    letter-spacing: .05em;
+    padding: 3px 15px;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+}
+.vx-counter-number {
+    font-size: 40px;
+    font-family: 'roboto';
+    letter-spacing: 3px;
+    background-color: rgba(18, 34, 57, .4);
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-weight: 700;
+}
+
+/**
+ * Increase License Block
+ */
+.vx-increase-percentage-block {
+    background-color: #7492c8;
+    padding: 30px 40px;
+    z-index: 999;
+    color: #fff;
+    text-align: center;
+    line-height: 1em !important;
+    border-radius: 5px;
+    max-width: 280px;
+    font-family: roboto;
+}
+.vx-increase-percentage-block p.vx-block-percent-text {
+    font-size: 80px !important;
+    line-height: 1;
+    font-family: roboto;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+}
+.vx-increase-percentage-block p.vx-block-license-text {
+    margin: 10px 0 20px 0;
+    line-height: 1;
+    font-size: 24px;
+    font-family: 'roboto';
+}
