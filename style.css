@@ -23,6 +23,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     src: url(../twentytwenty-child/fonts/Roboto-Regular.ttf);
 }
 
+.entry-content p {
+    font-family: 'roboto' !important;
+}
+
 /**
  * Hero Counter Section CSS
  */
