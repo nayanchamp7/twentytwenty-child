@@ -66,7 +66,7 @@ if( !function_exists( 'vx_hero_counter' ) ) {
     function vx_hero_counter() {
         if( function_exists( 'get_field' ) ) {
             $counter_items = get_field( 'counter_items', 'option' );
-
+            ob_start();
             if( $counter_items ) { ?>
                     <div class="vx-hero-counter-items">
                         <?php
@@ -84,6 +84,7 @@ if( !function_exists( 'vx_hero_counter' ) ) {
                     </div>
                 <?php
             }
+            return ob_get_clean();
         }
     }
 }
@@ -98,13 +99,18 @@ if( !function_exists( 'vs_increase_percentage' ) ) {
             $percentage_value = get_field( 'increase_percentage_value', 'option' );
             $percentage_text = get_field( 'increase_percentage_text', 'option' );
 
-            if( $percentage_value && $percentage_text ) { ?>
+            ob_start();
+
+            if( $percentage_value && $percentage_text ) { 
+                ?>
                     <div class="vx-increase-percentage-block">
                         <p class="vx-block-percent-text"><?php esc_html_e( $percentage_value, 'twentytwentychild' ); ?></p>
                         <p class="vx-block-license-text"><?php esc_html_e( $percentage_text, 'twentytwentychild' ); ?></p>
                     </div>
                 <?php
             }
+
+            return ob_get_clean();
         }
     }
 }
@@ -125,13 +131,15 @@ if( !function_exists( 'vs_header_logo' ) ) {
             $logo_hover_icon = get_field( 'logo_hover_icon', 'option' );
             $logo_hover_icon_url = $logo_hover_icon['url'];
             $logo_hover_text = get_field( 'logo_hover_text', 'option' );
-            
-            ?>
+
+            ob_start(); ?>
                 <div class="logo-container" style="position: relative;width: 178px;height: 53px;">
                     <a class="vx-logo" href="<?php echo home_url(); ?>"><img src="<?php echo esc_url( $custom_logo_url ); ?>" alt="ViserX"/></a>
                     <a class="logo-hover-element" href="<?php echo home_url(); ?>"><img class="logo-hover-icon" style="width: 24px;" src="<?php echo esc_url( $logo_hover_icon_url ); ?>" alt="ViserX Hover Icon"/> <?php esc_html_e( $logo_hover_text, 'twentytwentychild');  ?></a>
                 </div>
-            <?php
+                <?php
+
+            return ob_get_clean();
             
         }
     }
@@ -149,7 +157,7 @@ if( !function_exists( 'vs_header_revenue_info' ) ) {
             $header_revenue_link = get_field( 'header_revenue_link', 'option' ); 
             $header_revenue_title = get_field( 'header_revenue_title', 'option' ); 
             $header_revenue_number = get_field( 'header_revenue_number', 'option' );
-            
+            ob_start();
             ?>
                 <div class="vx-header-revenue-container">
                     <a href="<?php echo esc_url( $header_revenue_link ); ?>">
@@ -158,7 +166,7 @@ if( !function_exists( 'vs_header_revenue_info' ) ) {
                     </a>
                 </div>
             <?php
-            
+            return ob_get_clean();
         }
     }
 }
