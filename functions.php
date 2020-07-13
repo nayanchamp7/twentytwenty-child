@@ -137,3 +137,29 @@ if( !function_exists( 'vs_header_logo' ) ) {
     }
 }
 add_shortcode( 'vs_header_logo', 'vs_header_logo' );
+
+
+/**
+ * Header Revenue Info
+ */
+if( !function_exists( 'vs_header_revenue_info' ) ) {
+    function vs_header_revenue_info() {
+        if( function_exists( 'get_field' ) ) {
+            
+            $header_revenue_link = get_field( 'header_revenue_link', 'option' ); 
+            $header_revenue_title = get_field( 'header_revenue_title', 'option' ); 
+            $header_revenue_number = get_field( 'header_revenue_number', 'option' );
+            
+            ?>
+                <div class="vx-header-revenue-container">
+                    <a href="<?php echo esc_url( $header_revenue_link ); ?>">
+                        <div class="vx-header-revenue-text"><?php echo $header_revenue_title; ?></div>
+                        <div class="vx-header-revenue-number"><span class="vx-font-weight-thin">$</span><?php esc_html_e( $header_revenue_number, 'twentytwentychild' ); ?></div>            
+                    </a>
+                </div>
+            <?php
+            
+        }
+    }
+}
+add_shortcode( 'vs_header_revenue_info', 'vs_header_revenue_info' );
