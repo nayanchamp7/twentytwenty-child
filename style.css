@@ -18,13 +18,58 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Import fonts
  */
 
-@font-face {
+ @font-face {
     font-family: 'roboto';
     src: url(../twentytwenty-child/fonts/Roboto-Regular.ttf);
 }
 
 .entry-content p {
     font-family: 'roboto' !important;
+}
+
+
+/**
+ * Header Css
+ */
+.logo-container {
+    position: relative;
+    width: 178px;
+    height: 60px;
+    overflow: hidden;
+}
+.logo-container .vx-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.logo-hover-element {
+    position: absolute;
+    top: 13px;
+    left: 178px;
+    font-size: 20px;
+    line-height: 1.4;
+    font-family: 'roboto' !important;
+    width: 178px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.logo-hover-element .logo-hover-icon {
+    margin-right: 5px;
+    float: left;
+}
+.logo-container:hover .vx-logo {
+    left: -178px;
+    opacity: 0;
+}
+.logo-container:hover .logo-hover-element {
+    left: 0;
+    opacity: 1;
 }
 
 /**

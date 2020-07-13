@@ -109,3 +109,31 @@ if( !function_exists( 'vs_increase_percentage' ) ) {
     }
 }
 add_shortcode( 'vs_increase_percentage', 'vs_increase_percentage' );
+
+/**
+ * Header Logo Shortcode
+ */
+if( !function_exists( 'vs_header_logo' ) ) {
+    function vs_header_logo() {
+        if( function_exists( 'get_field' ) ) {
+
+            // get custom logo
+            $custom_logo_id = get_theme_mod( 'custom_logo' );
+            $custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
+
+            //get hover icon
+            $logo_hover_icon = get_field( 'logo_hover_icon', 'option' );
+            $logo_hover_icon_url = $logo_hover_icon['url'];
+            $logo_hover_text = get_field( 'logo_hover_text', 'option' );
+            
+            ?>
+                <div class="logo-container" style="position: relative;width: 178px;height: 53px;">
+                    <a class="vx-logo" href="<?php echo home_url(); ?>"><img src="<?php echo esc_url( $custom_logo_url ); ?>" alt="ViserX"/></a>
+                    <a class="logo-hover-element" href="<?php echo home_url(); ?>"><img class="logo-hover-icon" style="width: 24px;" src="<?php echo esc_url( $logo_hover_icon_url ); ?>" alt="ViserX Hover Icon"/> <?php esc_html_e( $logo_hover_text, 'twentytwentychild');  ?></a>
+                </div>
+            <?php
+            
+        }
+    }
+}
+add_shortcode( 'vs_header_logo', 'vs_header_logo' );
