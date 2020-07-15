@@ -27,7 +27,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     font-family: 'roboto' !important;
 }
 
-.page .entry-header { 
+.page .entry-header, .post-meta-wrapper { 
     display: none; 
 }
 
