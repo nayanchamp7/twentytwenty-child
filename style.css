@@ -238,7 +238,7 @@ h2.vx-counter-title {
 .elementor-element .wpcf7-form input[type="url"] {
     border-radius: 5px;
 }
-.elementor-element .wpcf7-form-control .wpcf7-select {
+.elementor-element .wpcf7-form-control.wpcf7-select {
     height: 50px;
     width: 100%;
     border-radius: 5px;
