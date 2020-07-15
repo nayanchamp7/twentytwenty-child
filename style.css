@@ -271,6 +271,10 @@ h2.vx-counter-title {
     .elementor-element .wpcf7-form p {
         max-width: 330px;
         width: 100%;
-        margin: 20px auto;
+        margin: 0px auto;
+    }
+
+    .elementor-element .wpcf7-form input[type="submit"] {
+        width: 100%;
     }
 }
