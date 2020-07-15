@@ -211,3 +211,37 @@ h2.vx-counter-title {
     font-size: 24px;
     font-family: 'roboto';
 }
+
+
+/**
+ * Free Quote Form
+ */
+.elementor-element .wpcf7-form {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 16px;
+    line-height: 26px;
+    color: #666;
+}
+.elementor-element .wpcf7-form p {
+    width: 50%;
+}
+.elementor-element .wpcf7-form input[type="text"] {
+    border-radius: 5px;
+    width: 50%;
+    height: 50px !important;
+    font-size: 18px !important;
+    line-height: 30px !important;
+    font-family: 'roboto' !important;
+}
+
+.elementor-element .wpcf7-form input[type="submit"] {
+    float: right;
+    width: 35% !important;
+    font-family: 'robotoregular' !important;
+    text-decoration: none;
+    font-size: 18px !important;
+    line-height: 30px !important;
+    background: #14a65e;
+    border-radius: 5px;
+}
