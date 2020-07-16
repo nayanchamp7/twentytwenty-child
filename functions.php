@@ -21,7 +21,7 @@ function viserx_enqueue_styles() {
     );
 
     //child theme styles
-    wp_enqueue_style( 'twentytwenty-child-font-awesome', get_stylesheet_directory_uri() . '/assets/css/font-awesome.min.css');
+    wp_enqueue_style( 'twentytwenty-child-font-awesome', get_stylesheet_directory_uri() . '/assets/css/all.min.css');
     wp_enqueue_style( 'twentytwenty-child-style', get_stylesheet_uri(),
         array( $parenthandle ),
         $theme->get('Version')
