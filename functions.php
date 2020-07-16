@@ -199,85 +199,72 @@ add_filter( 'get_the_date', 'vx_post_time_ago' );
  */
 if( !function_exists( 'vx_posts_grid' ) ) {
     function vx_posts_grid() {
-        if( function_exists( 'get_field' ) ) {
-            
-            $header_revenue_link = get_field( 'header_revenue_link', 'option' ); 
-            $header_revenue_title = get_field( 'header_revenue_title', 'option' ); 
-            $header_revenue_number = get_field( 'header_revenue_number', 'option' );
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => 3,
+            'order' => 'ASC',
+            'order_by' => 'date',
+            'meta_query' => array( 
+                array(
+                    'key' => '_thumbnail_id'
+                ) 
+            )
+        );
+        
+        $posts = get_posts( $args );
 
-            $args = array(
-                'post_type' => 'post',
-                'posts_per_page' => 3,
-                'order' => 'ASC',
-                'order_by' => 'date',
-                'meta_query' => array( 
-                    array(
-                        'key' => '_thumbnail_id'
-                    ) 
-                )
-            );
-            $posts = get_posts( $args );
+        ob_start();
+        ?>
+            <div class="vx-posts-grid-wrapper">
+                <?php
+                    if( $posts ) {
+                        foreach( $posts as $post ) {
+                            setup_postdata($posts);
 
-            // echo '<pre>';
-            // print_r($posts);
-            // echo '</pre>';
-
-            
-            
-
-            ob_start();
-            ?>
-               <div class="vx-posts-grid-wrapper">
-                   <?php
-                        if( $posts ) {
-                            foreach( $posts as $post ) {
-                                setup_postdata($posts);
-
-                                //post data
-                                $id = $post->ID;
-                                $categories = get_the_terms( $id, 'category' );
-                                $author_id = $post->post_author;
-                                ?>
-                                    <div class="vx-post-grid-item">
-                                        <div class="vs-posts-content">
-                                            <div class="vx-posts-categories">
-                                                <?php
-                                                    if( $categories ) {
-                                                        foreach( $categories as $category ) {
-                                                            $cat_id = $category->term_id;
-                                                            $cat_title = $category->name;
-                                                            $link = get_term_link($cat_id);
-                                                            $classes = 'vx-posts-category';
-                                                            echo sprintf('<a href="%s" class="%s">%s</a>', $link, $classes, $cat_title);
-                                                        }
+                            //post data
+                            $id = $post->ID;
+                            $categories = get_the_terms( $id, 'category' );
+                            $author_id = $post->post_author;
+                            ?>
+                                <div class="vx-post-grid-item">
+                                    <div class="vs-posts-content">
+                                        <div class="vx-posts-categories">
+                                            <?php
+                                                if( $categories ) {
+                                                    foreach( $categories as $category ) {
+                                                        $cat_id = $category->term_id;
+                                                        $cat_title = $category->name;
+                                                        $link = get_term_link($cat_id);
+                                                        $classes = 'vx-posts-category';
+                                                        echo sprintf('<a href="%s" class="%s">%s</a>', $link, $classes, $cat_title);
                                                     }
-                                                ?>
-                                                
-                                            </div>
-                                            <?php echo sprintf( '<h2>%s</h2>', get_the_title($id) ); ?>
-                                            <div class="vx-posts-meta">
-                                                <span><i class="fa fa-calendar-o" aria-hidden="true"></i> <?php echo get_the_date(); ?></span>
-                                                <span><i class="fa fa-pencil" aria-hidden="true"></i> <?php the_author_meta( 'user_nicename' , $author_id ); ?></span>
-                                            </div>
+                                                }
+                                            ?>
+                                            
                                         </div>
-
-                                        <a href="<?php echo get_the_permalink(); ?>">
-                                            <div class="vx-posts-grid-thumbnail">
-                                                <?php echo get_the_post_thumbnail( $post, 'vx-post-grid-thumbnail' ); ?>
-                                            </div>
-                                        </a>
+                                        <?php echo sprintf( '<h2>%s</h2>', get_the_title($id) ); ?>
+                                        <div class="vx-posts-meta">
+                                            <span><i class="fa fa-calendar-o" aria-hidden="true"></i> <?php echo get_the_date(); ?></span>
+                                            <span><i class="fa fa-pencil" aria-hidden="true"></i> <?php the_author_meta( 'user_nicename' , $author_id ); ?></span>
+                                        </div>
                                     </div>
-                                <?php
 
-                                wp_reset_postdata();
-                            }
+                                    <a href="<?php echo get_the_permalink(); ?>">
+                                        <div class="vx-posts-grid-thumbnail">
+                                            <?php echo get_the_post_thumbnail( $post, 'vx-post-grid-thumbnail' ); ?>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php
+
+                            wp_reset_postdata();
                         }
-                   ?>
-                   
-               </div>
-            <?php
-            return ob_get_clean();
-        }
+                    }
+                ?>
+                
+            </div>
+        <?php
+        return ob_get_clean();
     }
 }
 add_shortcode( 'vx_posts_grid', 'vx_posts_grid' );
