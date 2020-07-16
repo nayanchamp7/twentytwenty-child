@@ -21,10 +21,25 @@ function viserx_enqueue_styles() {
     );
 
     //child theme styles
+    wp_enqueue_style( 'font-awesome', get_stylesheet_uri() . 'assets/css/font-awesome.min.css',
+        array( $parenthandle ),
+        $theme->get('Version')
+    );
     wp_enqueue_style( 'twentytwenty-child-style', get_stylesheet_uri(),
         array( $parenthandle ),
         $theme->get('Version')
     );
+    
+}
+
+/**
+ * TwentyTwenty child theme after setup
+ * 
+ * @since 1.0
+ */
+add_action( 'after_setup_theme', 'viserx_after_setup_theme' );
+function viserx_after_setup_theme() {
+    add_image_size( 'vx-post-grid-thumbnail', '435', '270', true );
 }
 
 
@@ -135,7 +150,7 @@ if( !function_exists( 'vs_header_logo' ) ) {
             ob_start(); ?>
                 <div class="logo-container" style="position: relative;width: 178px;height: 53px;">
                     <a class="vx-logo" href="<?php echo home_url(); ?>"><img src="<?php echo esc_url( $custom_logo_url ); ?>" alt="ViserX"/></a>
-                    <a class="logo-hover-element" href="<?php echo home_url(); ?>"><img class="logo-hover-icon" style="width: 24px;" src="<?php echo esc_url( $logo_hover_icon_url ); ?>" alt="ViserX Hover Icon"/> <?php esc_html_e( $logo_hover_text, 'twentytwentychild');  ?></a>
+                    <a class="logo-hover-element" href="<?php echo home_url(); ?>"><img class="logo-hover-icon" style="width: 16px;" src="<?php echo esc_url( $logo_hover_icon_url ); ?>" alt="ViserX Hover Icon"/> <?php esc_html_e( $logo_hover_text, 'twentytwentychild');  ?></a>
                 </div>
                 <?php
 
@@ -171,3 +186,101 @@ if( !function_exists( 'vs_header_revenue_info' ) ) {
     }
 }
 add_shortcode( 'vs_header_revenue_info', 'vs_header_revenue_info' );
+
+/**
+ * Post Time Ago
+ */
+function vx_post_time_ago() {
+    return sprintf( esc_html__( '%s ago', 'twentytwentychild' ), human_time_diff(get_the_time ( 'U' ), current_time( 'timestamp' ) ) );
+}
+add_filter( 'get_the_date', 'vx_post_time_ago' );
+/**
+ * Post Grid Shortcode
+ */
+if( !function_exists( 'vx_posts_grid' ) ) {
+    function vx_posts_grid() {
+        if( function_exists( 'get_field' ) ) {
+            
+            $header_revenue_link = get_field( 'header_revenue_link', 'option' ); 
+            $header_revenue_title = get_field( 'header_revenue_title', 'option' ); 
+            $header_revenue_number = get_field( 'header_revenue_number', 'option' );
+
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 3,
+                'order' => 'ASC',
+                'order_by' => 'date',
+                'meta_query' => array( 
+                    array(
+                        'key' => '_thumbnail_id'
+                    ) 
+                )
+            );
+            $posts = get_posts( $args );
+
+            // echo '<pre>';
+            // print_r($posts);
+            // echo '</pre>';
+
+            
+            
+
+            ob_start();
+            ?>
+               <div class="vx-posts-grid-wrapper">
+                   <?php
+                        if( $posts ) {
+                            foreach( $posts as $post ) {
+                                setup_postdata($posts);
+
+                                //post data
+                                $id = $post->ID;
+                                $categories = get_the_terms( $id, 'category' );
+                                $author_id = $post->post_author;
+                                ?>
+                                    <div class="vx-post-grid-item">
+                                        <div class="vs-posts-content">
+                                            <div class="vx-posts-categories">
+                                                <?php
+                                                    if( $categories ) {
+                                                        foreach( $categories as $category ) {
+                                                            $cat_id = $category->term_id;
+                                                            $cat_title = $category->name;
+                                                            $link = get_term_link($cat_id);
+                                                            $classes = 'vx-posts-category';
+                                                            echo sprintf('<a href="%s" class="%s">%s</a>', $link, $classes, $cat_title);
+                                                        }
+                                                    }
+                                                ?>
+                                                
+                                            </div>
+                                            <?php echo sprintf( '<h2>%s</h2>', get_the_title($id) ); ?>
+                                            <div class="vx-posts-meta">
+                                                <span><i class="fa fa-calendar-o" aria-hidden="true"></i> <?php echo get_the_date(); ?></span>
+                                                <span><i class="fa fa-pencil" aria-hidden="true"></i> <?php the_author_meta( 'user_nicename' , $author_id ); ?></span>
+                                            </div>
+                                        </div>
+
+                                        <a href="<?php echo get_the_permalink(); ?>">
+                                            <div class="vx-posts-grid-thumbnail">
+                                                <?php echo get_the_post_thumbnail( $post, 'vx-post-grid-thumbnail' ); ?>
+                                            </div>
+                                        </a>
+                                    </div>
+                                <?php
+
+                                wp_reset_postdata();
+                            }
+                        }
+                   ?>
+                   
+               </div>
+            <?php
+            return ob_get_clean();
+        }
+    }
+}
+add_shortcode( 'vx_posts_grid', 'vx_posts_grid' );
+
+
+
