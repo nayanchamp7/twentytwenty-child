@@ -315,6 +315,7 @@ h2.vx-counter-title {
     font-size: 26px;
     margin: 10px 0;
     font-family: 'poppins';
+    text-transform: capitalize;
 }
 .vx-posts-meta {
     font-size: 14px;

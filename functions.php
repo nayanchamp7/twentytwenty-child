@@ -21,10 +21,7 @@ function viserx_enqueue_styles() {
     );
 
     //child theme styles
-    wp_enqueue_style( 'font-awesome', get_stylesheet_uri() . 'assets/css/font-awesome.min.css',
-        array( $parenthandle ),
-        $theme->get('Version')
-    );
+    wp_enqueue_style( 'twentytwenty-child-font-awesome', get_stylesheet_directory_uri() . '/assets/css/font-awesome.min.css');
     wp_enqueue_style( 'twentytwenty-child-style', get_stylesheet_uri(),
         array( $parenthandle ),
         $theme->get('Version')
@@ -249,7 +246,7 @@ if( !function_exists( 'vx_posts_grid' ) ) {
                                         </div>
                                     </div>
 
-                                    <a href="<?php echo get_the_permalink(); ?>">
+                                    <a href="<?php echo get_the_permalink($id); ?>">
                                         <div class="vx-posts-grid-thumbnail">
                                             <?php echo get_the_post_thumbnail( $post, 'vx-post-grid-thumbnail' ); ?>
                                         </div>
