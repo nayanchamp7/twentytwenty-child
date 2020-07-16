@@ -241,8 +241,8 @@ if( !function_exists( 'vx_posts_grid' ) ) {
                                         </div>
                                         <?php echo sprintf( '<h2>%s</h2>', get_the_title($id) ); ?>
                                         <div class="vx-posts-meta">
-                                            <span><i class="fa fa-calendar-o" aria-hidden="true"></i> <?php echo get_the_date(); ?></span>
-                                            <span><i class="fa fa-pencil" aria-hidden="true"></i> <?php the_author_meta( 'user_nicename' , $author_id ); ?></span>
+                                            <span><i class="fas fa-calendar-o" aria-hidden="true"></i> <?php echo get_the_date(); ?></span>
+                                            <span><i class="fas fa-pencil" aria-hidden="true"></i> <?php the_author_meta( 'user_nicename' , $author_id ); ?></span>
                                         </div>
                                     </div>
 
