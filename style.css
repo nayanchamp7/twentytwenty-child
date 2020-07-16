@@ -37,10 +37,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 #mega_main_menu.first-lvl-align-left > .menu_holder > .menu_inner > ul{
-    text-align: right;
+    text-align: right !important;
 }
 #mega_main_menu .vx-top-menu-mobile-item {
-    float: left;
+    float: left !important;
 }
 /**
  * Header Css
