@@ -13,6 +13,7 @@ add_action( 'wp_enqueue_scripts', 'viserx_enqueue_styles' );
 function viserx_enqueue_styles() {
     $parenthandle = 'twentytwenty-style'; 
     $theme = wp_get_theme();
+    $theme_version = $theme->get( 'Version' );
 
     //parent theme styles
     wp_enqueue_style( $parenthandle, get_template_directory_uri() . '/style.css', 
@@ -26,6 +27,12 @@ function viserx_enqueue_styles() {
         array( $parenthandle ),
         $theme->get('Version')
     );
+
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'wp-util' );
+    
+    $js_version = $theme_version . '.' . filemtime( get_template_directory() . '/assets/js/custom.js' );
+		wp_enqueue_script( 'twentytwenty-child-scripts', get_template_directory_uri() . '/assets/js/custom.js', array(), $js_version, true );
     
 }
 
@@ -267,45 +274,6 @@ if( !function_exists( 'vx_posts_grid' ) ) {
 add_shortcode( 'vx_posts_grid', 'vx_posts_grid' );
 
 
-if( ! function_exists('vx_custom_js') ) {
-    function vx_custom_js() {
-
-        
-        ?>
-        <script type="text/javascript">
-
-            if ( undefined !== window.jQuery ) {
-                (function($) {
-                    $('document').ready(function() {
-                        var seoDetailsTop = $('.vx--seo-details-left-column').offset().top;
-                        
-                        console.log('hello pops');
-                        $(window).scroll(function() {
-
-                            var currentScroll = $(window).scrollTop();
-
-                            if (currentScroll >= seoDetailsTop) {
-                                $('.vx-seo-sidebar').css({ 
-                                    position: 'static'
-                                    
-                                });
-                            } else {
-                                $('.vx-seo-sidebar').css({
-                                    position: 'fixed',
-                                    top: '0',
-                                    left: '0'
-                                });
-                            }
-
-                        });
-                    });
-                })('jQuery');
-            }
-        </script>
-        <?php
-    }
-}
-add_action( 'wp_footer', 'vx_custom_js' );
 
 
 
