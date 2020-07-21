@@ -2,7 +2,7 @@
     $('document').ready(function() {
 
         if ($(window).width() > 768) {
-            if( $('body').has('.vx-seo-sidebar') ) {
+            if( $(".vx-seo-sidebar").length > 0 ) {
                 var seoDetailsTop = $('.vx-seo-sidebar').offset().top;
                 var nextAfterSeoDetails = $('.vx-seo-sidebar').next();
             
