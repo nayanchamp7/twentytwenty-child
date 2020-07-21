@@ -10,15 +10,16 @@
                 var currentScroll = $(window).scrollTop();
                 console.log(currentScroll);
                 if (currentScroll >= seoDetailsTop) {
-                    $('.vx-seo-sidebar').css({ 
-                        position: 'static'
-                        
-                    });
-                } else {
                     $('.vx-seo-sidebar').css({
                         position: 'fixed',
                         top: '0',
-                        left: '0'
+                        right: '0'
+                    });
+                    
+                } else {
+                    $('.vx-seo-sidebar').css({ 
+                        position: 'static'
+                        
                     });
                 }
 
