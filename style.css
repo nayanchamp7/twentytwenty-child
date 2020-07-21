@@ -40,6 +40,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     padding-top: 0;
 }
 
+.vx-stylish-heading:first-letter {
+    background: transparent;
+    border: 2px solid #3accbf;
+    padding: 0px 15px;
+    color: #3accbf;
+    margin-right: 5px;
+}
 
 #mega_main_menu.first-lvl-align-left > .menu_holder > .menu_inner > ul{
     text-align: right !important;

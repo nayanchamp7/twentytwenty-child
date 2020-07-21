@@ -267,4 +267,43 @@ if( !function_exists( 'vx_posts_grid' ) ) {
 add_shortcode( 'vx_posts_grid', 'vx_posts_grid' );
 
 
+if( ! function_exists('vx_custom_js') ) {
+    function vx_custom_js() {
+
+        
+        ?>
+        <script type="text/javascript">
+
+            if ( undefined !== window.jQuery ) {
+                        $('document').ready(function() {
+                            var seoDetailsTop = $('.vx--seo-details-left-column').offset().top;
+                            
+                            console.log('hello pops');
+                            $(window).scroll(function() {
+
+                                var currentScroll = $(window).scrollTop();
+
+                                if (currentScroll >= seoDetailsTop) {
+                                    $('.vx-seo-sidebar').css({ 
+                                        position: 'static'
+                                        
+                                    });
+                                } else {
+                                    $('.vx-seo-sidebar').css({
+                                        position: 'fixed',
+                                        top: '0',
+                                        left: '0'
+                                    });
+                                }
+
+                            });
+                        });
+            }
+        </script>
+        <?php
+    }
+}
+add_action( 'wp_footer', 'vx_custom_js' );
+
+
 
