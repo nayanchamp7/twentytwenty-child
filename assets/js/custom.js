@@ -31,7 +31,7 @@
 
                             $('.vx-seo-sidebar').css({
                                 position: 'fixed',
-                                top: '-20%',
+                                top: '-50%',
                                 right: '0'
                             });
                             
