@@ -19,7 +19,7 @@
 
                         var seoDetailsTop = $('.vx-seo-details-left-column').offset().top;
                         var nextAfterSeoDetails = $('vx-related-article-section');
-                        var topToPosition = $('.vx-seo-sidebar').height() / 2 + 'px';
+                        var topToPosition = '-' + $('.vx-seo-sidebar').height() / 2 + 'px';
 
                         // if ( elementInView( nextAfterSeoDetails ) ) {
                         //     //fire at will!
