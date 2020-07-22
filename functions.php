@@ -274,6 +274,18 @@ if( !function_exists( 'vx_posts_grid' ) ) {
 add_shortcode( 'vx_posts_grid', 'vx_posts_grid' );
 
 
+if( ! function_exists( 'vx_seo_pricing_input' ) ) {
+    function vx_seo_pricing_input() {
+        ob_start();
+        ?>
+        <input type="text" class="vx-pricing-number-input" value="1">
+        <?php
+        return ob_get_clean();
+    }
+}
+add_shortcode( 'vx_seo_pricing_input', 'vx_seo_pricing_input' );
+
+
 
 
 
