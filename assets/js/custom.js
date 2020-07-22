@@ -8,6 +8,12 @@
         //         return ($(window).height() + $(window).scrollTop()) > $(elem).offset().top;
         //     }
         // }
+
+        $('.vx-pricing-number-input').on( 'change', function(e) {
+            var pricing_number = $(this).val();
+            var total_cost = parseInt(pricing_number) +  300;
+            $('.vx-local-seo-total-cost .elementor-heading-title').text( "$" +  );
+        });
         
 
         if( $(window).width() > 960 ) {

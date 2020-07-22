@@ -278,7 +278,7 @@ if( ! function_exists( 'vx_seo_pricing_input' ) ) {
     function vx_seo_pricing_input() {
         ob_start();
         ?>
-        <input type="number" class="vx-pricing-number-input" value="1">
+        <input type="number" class="vx-pricing-number-input" value="1" min="0">
         <?php
         return ob_get_clean();
     }
