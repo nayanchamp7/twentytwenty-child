@@ -19,6 +19,7 @@
 
                         var seoDetailsTop = $('.vx-seo-details-left-column').offset().top;
                         var nextAfterSeoDetails = $('vx-related-article-section');
+                        var topToPosition = $('.vx-seo-sidebar').height() / 2 + 'px';
 
                         // if ( elementInView( nextAfterSeoDetails ) ) {
                         //     //fire at will!
@@ -31,7 +32,7 @@
 
                             $('.vx-seo-sidebar').css({
                                 position: 'fixed',
-                                top: '-50%',
+                                top: topToPosition,
                                 right: '0'
                             });
                             
