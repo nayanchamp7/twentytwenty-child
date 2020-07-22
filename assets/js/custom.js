@@ -17,8 +17,6 @@
                         var seoDetailsTop = $('.vx-seo-details-left-column').offset().top;
                         var nextAfterSeoDetails = $('vx-related-article-section');
 
-                        console.log(nextAfterSeoDetails);
-
                         if ( elementInView( nextAfterSeoDetails ) ) {
                             //fire at will!
                             alert('there it is, wooooohooooo!');
