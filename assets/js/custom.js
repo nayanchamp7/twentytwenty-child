@@ -10,19 +10,20 @@
 
         if( $(window).width() > 768 ) {
 
-            if( $(".vx-seo-sidebar").length > 0 ) {
+            if( $(".vx-seo-details-left-column").length > 0 ) {
 
-                var seoDetailsTop = $('.vx-seo-sidebar').offset().top;
+                var seoDetailsTop = $('.vx-seo-details-left-column').offset().top;
                 var nextAfterSeoDetails = $('.vx-seo-sidebar').next();
             
                 $(window).scroll(function() {
 
-                    if ( elementInView( $('.vx-seo-sidebar').next() ) ) {
+                    if ( elementInView( $('.vx-seo-details-left-column').parent('.vx-seo-details-section').next() ) ) {
                         //fire at will!
                         console.log('there it is, wooooohooooo!');
                     }
     
                     var currentScroll = $(window).scrollTop();
+                    console.log(currentScroll);
                     if (currentScroll >= seoDetailsTop) {
 
                         $('.vx-seo-sidebar').css({
