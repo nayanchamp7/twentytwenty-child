@@ -21,7 +21,7 @@
 
                         if ( elementInView( nextAfterSeoDetails ) ) {
                             //fire at will!
-                            console.log('there it is, wooooohooooo!');
+                            alert('there it is, wooooohooooo!');
                         }
         
                         var currentScroll = $(window).scrollTop();
