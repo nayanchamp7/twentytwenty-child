@@ -15,10 +15,10 @@
             
                 $(window).scroll(function() {
 
-                    if ( elementInView( $('.vx-seo-sidebar').next() ) )
+                    if ( elementInView( $('.vx-seo-sidebar').next() ) ) {
                         //fire at will!
                         console.log('there it is, wooooohooooo!');
-                    });
+                    }
     
                     var currentScroll = $(window).scrollTop();
                     if (currentScroll >= seoDetailsTop) {
