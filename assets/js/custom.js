@@ -14,6 +14,8 @@
 
                     if( $(".vx-seo-details-left-column").length > 0 ) {
 
+                        alert('hello sticky');
+
                         var seoDetailsTop = $('.vx-seo-details-left-column').offset().top;
                         var nextAfterSeoDetails = $('vx-related-article-section');
 
