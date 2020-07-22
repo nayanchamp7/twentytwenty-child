@@ -15,9 +15,9 @@
                     if( $(".vx-seo-details-left-column").length > 0 ) {
 
                         var seoDetailsTop = $('.vx-seo-details-left-column').offset().top;
-                        var nextAfterSeoDetails = $('.vx-seo-details-section').next();
+                        var nextAfterSeoDetails = $('vx-related-article-section');
 
-                        console.log("next section: " + nextAfterSeoDetails);
+                        console.log(nextAfterSeoDetails);
 
                         if ( elementInView( nextAfterSeoDetails ) ) {
                             //fire at will!
@@ -25,8 +25,7 @@
                         }
         
                         var currentScroll = $(window).scrollTop();
-                        console.log(currentScroll);
-                        console.log( "seo details: " + seoDetailsTop);
+
                         if (currentScroll >= seoDetailsTop) {
 
                             $('.vx-seo-sidebar').css({
