@@ -12,7 +12,8 @@
         $('.vx-pricing-number-input').on( 'change', function(e) {
             var pricing_number = $(this).val();
             var total_cost = parseInt(pricing_number) +  300;
-            $('.vx-local-seo-total-cost .elementor-heading-title').text( "$" +  );
+            console.log(total_cost);
+            $('.vx-local-seo-total-cost .elementor-heading-title').text( "$" + total_cost );
         });
         
 
