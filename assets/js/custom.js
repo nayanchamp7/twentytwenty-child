@@ -2,7 +2,9 @@
     $('document').ready(function() {
 
         function elementInView(elem) {
-            return $(window).scrollTop() < $(elem).offset().top + $(elem).height() ;
+            if( elem.length > 0 ) {
+                return $(window).scrollTop() < $(elem).offset().top + $(elem).height() ;
+            }
         }
         
 
