@@ -364,6 +364,17 @@ h2.vx-counter-title {
     color: #ff6b6b;
 }
 
+.vx-table-page-btn {
+    background: #00cc81 !important;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0.34px;
+    background-color: #00b170;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
 /**
  * Responsive Style
  */

@@ -295,7 +295,7 @@ if( ! function_exists( 'vx_seo_table_quote_btn' ) ) {
             $vx_table_btn_text = get_field( 'vx_table_button_text', 'option' );
             $vx_table_btn_link = get_field( 'vx_table_button_link', 'option' );
 
-            echo sprintf( '<a class="vx-table-btn" href="%">%s</a>', esc_url( $vx_table_btn_link ), esc_html__( $vx_table_btn_text ) );
+            echo sprintf( '<a class="vx-table-page-btn" href="%">%s</a>', esc_url( $vx_table_btn_link ), esc_html__( $vx_table_btn_text ) );
         }
 
         return ob_get_clean();
