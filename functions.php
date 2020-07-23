@@ -301,6 +301,7 @@ if( ! function_exists( 'vx_seo_table_quote_btn' ) ) {
         return ob_get_clean();
     }
 }
+add_shortcode( 'vx_seo_table_quote_btn', 'vx_seo_table_quote_btn' );
 
 
 
