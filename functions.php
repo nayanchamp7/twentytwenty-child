@@ -15,14 +15,16 @@ function viserx_enqueue_styles() {
     $theme = wp_get_theme();
     $theme_version = $theme->get( 'Version' );
 
-    wp_dequeue_style( 'twentytwenty-style' );
-    wp_deregister_style( 'twentytwenty-style' );
+    
 
     //parent theme styles
-    wp_enqueue_style( $parenthandle, get_template_directory_uri() . '/style.css', 
-        array(),
-        $theme->parent()->get('Version')
-    );
+    // wp_enqueue_style( $parenthandle, get_template_directory_uri() . '/style.css', 
+    //     array(),
+    //     $theme->parent()->get('Version')
+    // );
+
+    wp_dequeue_style( 'twentytwenty-style' );
+    wp_deregister_style( 'twentytwenty-style' );
 
     //child theme styles
     wp_enqueue_style( 'twentytwenty-child-font-awesome', get_stylesheet_directory_uri() . '/assets/css/font-awesome.min.css');
