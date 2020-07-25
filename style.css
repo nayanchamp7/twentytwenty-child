@@ -28,6 +28,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
     src: url(../twentytwenty-child/fonts/Poppins-Regular.ttf);
 }
 
+body {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .entry-content p {
     font-family: 'roboto' !important;
 }
