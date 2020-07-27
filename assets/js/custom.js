@@ -37,10 +37,11 @@
 
                     if (currentScroll >= seoDetailsTop) {
 
-                        $('.vx-seo-sidebar').css({
+                        $('.elementor-element.vx-seo-sidebar').css({
                             position: 'fixed',
                             top: topToPosition,
-                            right: '0 !important'
+                            right: '0 !important',
+                            left: 'auto !important'
                         });
                         
                     } else {
