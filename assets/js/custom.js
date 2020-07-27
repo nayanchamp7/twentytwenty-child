@@ -40,7 +40,7 @@
                         $('.elementor-element.vx-seo-sidebar').css({
                             position: 'fixed',
                             top: topToPosition,
-                            right: '0 !important',
+                            right: '0px',
                             left: 'auto !important'
                         });
                         
