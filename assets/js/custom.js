@@ -19,40 +19,40 @@
 
         if( $(window).width() > 960 ) {
 
-                $(window).scroll(function() {
+            $(window).scroll(function() {
 
-                    if( $(".vx-seo-details-left-column").length > 0 ) {
+                if( $(".vx-seo-details-left-column").length > 0 ) {
 
 
-                        var seoDetailsTop = $('.vx-seo-details-left-column').offset().top;
-                        var nextAfterSeoDetails = $('vx-related-article-section');
-                        var topToPosition = '-' + $('.vx-seo-sidebar').height() / 2 + 'px';
+                    var seoDetailsTop = $('.vx-seo-details-left-column').offset().top;
+                    var nextAfterSeoDetails = $('vx-related-article-section');
+                    var topToPosition = '-' + $('.vx-seo-sidebar').height() / 2 + 'px';
 
-                        // if ( elementInView( nextAfterSeoDetails ) ) {
-                        //     //fire at will!
-                        //     alert('there it is, wooooohooooo!');
-                        // }
-        
-                        var currentScroll = $(window).scrollTop();
-
-                        if (currentScroll >= seoDetailsTop) {
-
-                            $('.vx-seo-sidebar').css({
-                                position: 'fixed',
-                                top: topToPosition,
-                                right: '0'
-                            });
-                            
-                        } else {
-                            $('.vx-seo-sidebar').css({ 
-                                position: 'static'
-                                
-                            });
-                        }
-
-                    }
+                    // if ( elementInView( nextAfterSeoDetails ) ) {
+                    //     //fire at will!
+                    //     alert('there it is, wooooohooooo!');
+                    // }
     
-                });    
+                    var currentScroll = $(window).scrollTop();
+
+                    if (currentScroll >= seoDetailsTop) {
+
+                        $('.vx-seo-sidebar').css({
+                            position: 'fixed',
+                            top: topToPosition,
+                            right: '0 !important'
+                        });
+                        
+                    } else {
+                        $('.vx-seo-sidebar').css({ 
+                            position: 'static'
+                            
+                        });
+                    }
+
+                }
+
+            });    
             
         }
     });
