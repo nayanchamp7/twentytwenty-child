@@ -340,9 +340,4 @@ if( ! function_exists( 'vx_code_to_footer' ) ) {
         }
     }
 }
-add_action( 'wp_footer', 'vx_code_to_footer' )
-
-
-
-
-
+add_action( 'wp_footer', 'vx_code_to_footer' );
