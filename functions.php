@@ -309,6 +309,40 @@ if( ! function_exists( 'vx_seo_table_quote_btn' ) ) {
 add_shortcode( 'vx_seo_table_quote_btn', 'vx_seo_table_quote_btn' );
 
 
+/**
+ * Check if elementor page
+ */
+if( ! function_exists( 'is_elementor_page' ) ) {
+    function is_elementor_page() {
+        global $post;
+
+        if ( is_plugin_active( 'elementor/elementor.php' ) ) {
+            return \Elementor\Plugin::$instance->db->is_built_with_elementor($post->ID);
+        }
+        
+        return false;
+    }
+}
+
+/**
+ * Add code to footer
+ */
+if( ! function_exists( 'vx_code_to_footer' ) ) {
+    function vx_code_to_footer() {
+        if( is_elementor_page() ) {
+            ?>
+            <style>
+                .pagination-single {
+                    display: none !important;
+                }
+            </style>
+            <?php
+        }
+    }
+}
+add_action( 'wp_footer', 'vx_code_to_footer' )
+
+
 
 
 

@@ -44,7 +44,7 @@
                             left: 'auto !important'
                         });
                         
-                    } else {
+                    } else {   
                         $('.vx-seo-sidebar').css({ 
                             position: 'static'
                             
